@@ -5,7 +5,6 @@ theme_init();
 
 function theme_init() {
 	add_action( 'init', 'theme_register_custom_post_types' );
-	add_action( 'rest_api_init', 'register_rest_fields' );
 
 	add_theme_support( 'post-thumbnails' ); 
 	add_theme_support( 'menus' ); 
