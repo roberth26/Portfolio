@@ -76,7 +76,7 @@ export default class Project extends React.Component {
 		var views = null;
 		if ( project ) {
 			var views = project.view_count + ' Views';
-			if ( project.view_count == 0 ) { views = 'No Views Yet' }
+			if ( !project.view_count ) { views = 'No Views Yet' }
 			if ( project.view_count == 1 ) { views = '1 View' }
 			return (
 				<div className="page project">
