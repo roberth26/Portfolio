@@ -22,6 +22,7 @@ export default class NavDrawer extends React.Component {
 								<a className="social_menu__link"
 									href={menu_item.url}
 									dangerouslySetInnerHTML={{__html: menu_item.label}}
+									target="_blank"
 								/>
 							</li>
 						);
