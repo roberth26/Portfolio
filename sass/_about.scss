@@ -1,0 +1,12 @@
+.about {
+
+	&__content {
+		color: $main_font_color;
+		line-height: 1.5;
+
+		a {
+			color: $green;
+			text-decoration: underline;
+		}
+	}
+}

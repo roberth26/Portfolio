@@ -1,0 +1,150 @@
+.dropdown {
+	color: $main_font_color;
+	width: 100%;
+	line-height: 34px;
+	border-radius: 17px;
+	border: 1px solid $main_font_color;
+	cursor: pointer;
+	z-index: 5;
+	background-color: rgba( $header_bg_color, .9 );
+	overflow: hidden;
+	box-shadow: none;
+	transition: all .25s ease;
+	position: absolute;
+
+	@media ( max-width: $mobile_max ) {
+		line-height: 40px;
+		margin-bottom: 20px;
+		border-radius: 20px;
+	}
+
+	@media ( max-width: 480px ) {
+		font-size: 1.4rem;
+	}
+
+	&:hover {
+		@extend .control_shadow;
+	}
+
+	&__contents {
+		position: relative;
+		max-height: 0;
+		overflow: hidden;
+		transition: all .5s ease;
+		border: 0;
+	}
+
+	&--is_open {
+		@extend .control_shadow;
+		z-index: 10;
+
+		.dropdown__label {
+			border-bottom: 1px solid $green;
+		}
+
+		.dropdown__contents {
+			max-height: 300px;
+		}
+	}
+
+	&__wrapper {
+		position: relative;
+
+		@media ( max-width: $mobile_max ) {
+		    height: 42.22222px;
+    		margin-bottom: 20px;
+    	}
+	}
+
+	&__label {
+		text-align: center;
+		border: 0;
+		transition: all .25s ease;
+		height: 34px;
+		line-height: inherit;
+		cursor: pointer;
+
+		@media ( max-width: $mobile_max ) {
+			height: 40px;
+		}
+	}
+
+	&__option {
+		padding: 0 15px;
+		background-color: transparent;
+		color: inherit;
+		transition: all .25s ease;
+		height: 34px;
+		line-height: inherit;
+		cursor: pointer;
+
+		&:hover {
+			background-color: $main_font_color;
+			color: white;
+		}
+		&:first-of-type {
+			margin-top: 7.5px;
+		}
+		&:last-of-type {
+			margin-bottom: 7.5px;
+		}
+
+		@media ( max-width: $mobile_max ) {
+			height: 40px;
+		}
+	}
+}
+
+#sort {
+	border-color: $red;
+	color: $red;
+
+	&:hover {
+		.dropdown__label {
+			background-color: $red;
+			color: $header_bg_color;
+			border-color: $red;
+		}
+	}
+
+	.dropdown__option {
+		&:hover {
+			background-color: $red;
+			color: $header_bg_color;
+		}
+	}
+
+	&.dropdown--is_open {
+		.dropdown__label {
+			border-color: $red;
+		}
+	}
+}
+
+
+
+#filter {
+	border-color: $green;
+	color: $green;
+
+	&:hover {
+		.dropdown__label {
+			background-color: $green;
+			color: $header_bg_color;
+			border-color: $green;
+		}
+	}
+
+	.dropdown__option {
+		&:hover {
+			background-color: $green;
+			color: $header_bg_color;
+		}
+	}
+
+	&.dropdown--is_open {
+		.dropdown__label {
+			border-color: $green;
+		}
+	}
+}
