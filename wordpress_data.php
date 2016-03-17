@@ -34,7 +34,7 @@
 				'unformatted' => $date,
 				'formatted' => date( 'M. j, Y', strtotime( $date ) )
 			),
-			'view_count' => json_decode( get_post_meta( $project -> ID, 'views', true ) ) -> count
+			'view_count' => count( json_decode( get_post_meta( $project -> ID, 'views', true ) ) )
 		);
 	}
 

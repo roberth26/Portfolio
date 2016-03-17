@@ -1,6 +1,6 @@
 <?php
 	define( 'WP_USE_THEMES', false );
-	require_once( dirname(__FILE__) . '/wordpress/wp-load.php' );
+	require_once( dirname( __FILE__ ) . '/wordpress/wp-load.php' );
 
 	$ip = $_SERVER[ 'REMOTE_ADDR' ];
 
@@ -8,18 +8,26 @@
 
 	$views = get_post_meta( $id, 'views', true );
 
-	if ( $views ) {
+	if ( $views != '' ) {
 		$views = json_decode( $views );
-		if ( !in_array( $ip, $views -> ips ) ) {
-			$views -> count++;
+		if ( !in_array( $ip, $views ) ) {
+			$views[] = $ip;
 			update_post_meta( $id, 'views', json_encode( $views ) );
 		}
 	} else {
-		$views = array(
-			'count' => 1,
-			'ips' => array( $ip )
-		);
-		add_post_meta( $id, 'views', json_encode( $views ), true );
+		$views = array( $ip );
+		add_post_meta( $id, 'views', json_encode( $views ) );
 	}
+
+
+	/*
+	$projects = get_posts( array( 'post_type' => 'project' ) );
+	foreach( $projects as $project ) {
+		echo $project -> ID;
+		delete_post_meta( $project -> ID, 'views' );
+	}
+
+	print_r( get_post_meta( $id, 'views', true ) );
+	*/
 
 ?>

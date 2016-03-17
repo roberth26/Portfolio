@@ -10,6 +10,7 @@ export default class Project extends React.Component {
 		super( props, context );
 		this.get_project_by_id = this.get_project_by_id.bind( this );
 		this.render_meta = this.render_meta.bind( this );
+		this.count_view = this.count_view.bind( this );
 	}
     get_project_by_id( id ) {
         if ( this.props.projects ) {
@@ -22,7 +23,7 @@ export default class Project extends React.Component {
         }
         return null;
     }
-    componentDidUpdate() {
+   	count_view() {
     	if ( this.props.params.id >= 1000 ) {
     		//console.log( this.props );
     		//this.props.history.push( '/portfolio' );
@@ -70,6 +71,7 @@ export default class Project extends React.Component {
 		);
 	}
 	render() {
+		this.count_view();
 		var project = this.get_project_by_id( this.props.params.id );
 		var previous_project_id = this.props.get_previous_project_id( this.props.params.id );
 		var next_project_id = this.props.get_next_project_id( this.props.params.id );
