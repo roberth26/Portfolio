@@ -4,12 +4,34 @@ import Logo from './Logo.jsx';
 import Nav from './Nav.jsx';
 
 export default class Footer extends React.Component {
+	render_social_menu() {
+		if ( this.props.social_menu ) {
+			return (
+				<ul className="social_menu">
+					{this.props.social_menu.map( function( menu_item, index ) {
+						return (
+							<li className="social_menu__item" key={index}>
+								<a className="social_menu__link"
+									href={menu_item.url}
+									dangerouslySetInnerHTML={{__html: menu_item.label}}
+									target="_blank"
+								/>
+							</li>
+						);
+					})}
+				</ul>
+			);
+		} else {
+			return null;
+		}
+	}
 	render() {
 		return (
 			<footer className="footer">
 				<div className="container">
 					<Logo className="footer__logo" />
 					<Nav />
+					{this.render_social_menu()}
 					<div className="react_powered">
 						<span className="react_powered__text">Powered by React</span>
 						<svg className="react_powered__logo" x="0px" y="0px" viewBox="0 0 570 510">

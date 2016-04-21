@@ -56,6 +56,42 @@
 		}
 	}
 
+	.social_menu {
+		font-size: 0;
+		color: transparent;
+		text-align: center;
+
+		&__item {
+			display: inline-block;
+			margin: 0 8px 30px 8px;
+		}
+
+		&__link {
+			&:hover,
+			&--current {
+				color: $red;
+				
+				svg {
+					* {
+						fill: $red;
+					}
+				}
+			}
+		}
+
+		svg {
+			display: block;
+			width: 24px;
+		    vertical-align: middle;
+		    margin-top: -4px;
+		    margin-right: 12px;
+
+			* {
+				fill: $main_font_color;
+			}
+		}
+	}
+
 	.react_powered {
 		margin-bottom: 30px;
 		font-size: 1.4rem;
